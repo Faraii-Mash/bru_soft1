@@ -1,16 +1,12 @@
-# This is a sample Python script.
+#  BRU_SOFT
+#  A BRU quotation making system
+#  This application is used to calculate the quotations of orders placed
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# Print introduction to application
+print('Welcome to the BRU App')
+print('Please select the programme you wish to run')
+print('1: Quotation with prices\n'
+      '2: Quotation without prices\n'
+      '3: Product Information\n'
+      '4: Order load information')
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

@@ -27,19 +27,20 @@ user_prog_option = input('1: Quotation with prices\n'
                          '3: Product Information\n'
                          '4: Order load information\n')
 
-
+user_prog_option = int(user_prog_option)
+# Program option Quotation with prices
 if user_prog_option == 1:
     print(f'You have chosen option number {user_prog_option}: Quotation with prices')
-
+# Program option Quotation without prices
 elif user_prog_option == 2:
     print(f'You have chosen option number {user_prog_option}: Quotation without prices')
-
+#  Program option Product Information
 elif user_prog_option == 3:
     print(f'You have chosen option number {user_prog_option}: Product Information')
-
+# Program option Order load information
 elif user_prog_option == 4:
     print(f'You have chosen option number {user_prog_option}: Order load information')
-
+# Program invalid option
 else:
     print('You have selected an invalid option, Please insert a valid option and try again')
 

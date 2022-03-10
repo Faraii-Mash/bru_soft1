@@ -2,6 +2,7 @@
 #  A BRU quotation making system
 #  This application is used to calculate the quotations of orders placed
 #  import
+
 import csv
 
 #  define the functions used by the application
@@ -24,7 +25,8 @@ def main_menu():
     #  Program option Product Information
     elif user_prog_option == 3:
         print(f'You have chosen option number {user_prog_option}: Product Information')
-        user_prod_name = input('Please enter the product you would like to view below: \n')
+        print('Below you will find the information for the load order requested')
+        prod_info()
     #  Program option Order load information
     elif user_prog_option == 4:
         print(f'You have chosen option number {user_prog_option}: Order load information')
@@ -43,9 +45,17 @@ def main_menu():
         print('You have selected an invalid option, Please insert a valid option and try again')
 
 
-def prod_info(user_prod_name):
-    print('You have selected to view information on the ')
-    print(f'You have chosen to view information on the {user_prod_name} product')
+def prod_info():
+    print('Product informaiton below')
+    file = open('bru_prod_specs.csv')
+    csvreader = csv.reader(file)
+    header = next(csvreader)
+    print(header)
+    rows = []
+    for row in csvreader:
+        rows.append(row)
+    print(rows)
+    file.close()
 
 def quote_priced():
     print('You have chosen to generate a quotation with prices')
@@ -171,4 +181,5 @@ def exit_option():
 
 #  Print introduction to application
 print('Welcome to the BRU App')
+
 main_menu()

@@ -1,6 +1,8 @@
 #  BRU_SOFT
 #  A BRU quotation making system
 #  This application is used to calculate the quotations of orders placed
+#  import
+import csv
 
 #  define the functions used by the application
 def main_menu():

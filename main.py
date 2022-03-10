@@ -42,8 +42,8 @@ def main_menu():
 
 
 def prod_info(user_prod_name):
+    print('You have selected to view information on the ')
     print(f'You have chosen to view information on the {user_prod_name} product')
-
 
 def quote_priced():
     print('You have chosen to generate a quotation with prices')
@@ -164,10 +164,8 @@ def exit_option():
     if confirm_exit == 1:
         print('Goodbye, Thank you for using this Bricks R Us application')
         return exit(0)
-
     else:
         print('Welcome back to the application')
-
 
 #  Print introduction to application
 print('Welcome to the BRU App')

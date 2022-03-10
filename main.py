@@ -27,10 +27,10 @@ def main_menu():
     elif user_prog_option == 4:
         print(f'You have chosen option number {user_prog_option}: Order load information')
         user_load_opt = int(input('Please enter the product to be calculated below: \n'
-                                   '1. Classic Pavers \n2. Concrete common bricks \n3. 60mm Interlocking Paver'
-                                   '4. 80mm Interlocking Paver \n5. Face bricks  \n6. Block M4 \n7. Block M6'
-                                   '8. Block M9 \n9. Industrial Kerbstones \n10. Domestic Kerbstones \n11. Paving Slabs'
-                                   '12. 3 Hole Brick \n 13. Exit'))
+                                  '1. Classic Pavers \n2. Concrete common bricks \n3. 60mm Interlocking Paver'
+                                  '4. 80mm Interlocking Paver \n5. Face bricks  \n6. Block M4 \n7. Block M6'
+                                  '8. Block M9 \n9. Industrial Kerbstones \n10. Domestic Kerbstones \n11. Paving Slabs\n'
+                                  '12. 3 Hole Brick \n 13. Exit\n'))
         num_pallets = int(input('Please input the number of pallets here: '
                                 'For Blocks, Slabs and kerbstones enter the total number of product:\n'))
         load_order(user_load_opt, num_pallets)
@@ -64,31 +64,31 @@ def load_order(user_load_opt, num_pallets):
         classic_paver_weight = 2.6
         # multiply weight by pallet size
         total_weight = classic_paver_weight * 500 * num_pallets
-        print(f'The total weight for the {num_pallets} pallets chosen is {total_weight} KG')
+        print(f'The total weight for the {num_pallets} pallets is {total_weight} KG')
     elif user_load_opt == 2:
         print(f'You have chosen option: {user_load_opt} Concrete Common Bricks')
         concrete_com_weight = 3.5
         # multiply weight by pallet size
         total_weight = concrete_com_weight * 500 * num_pallets
-        print(f'The total weight for the {num_pallets} pallets chosen is {total_weight} KG')
+        print(f'The total weight for the {num_pallets} pallets is {total_weight} KG')
     elif user_load_opt == 3:
         print(f'You have chosen option: {user_load_opt} 60mm Interlocking Paver')
         intloc_60_weight = 2.6
         # multiply weight by pallet size
         total_weight = intloc_60_weight * 500 * num_pallets
-        print(f'The total weight for the {num_pallets} pallets chosen is {total_weight} KG')
+        print(f'The total weight for the {num_pallets} pallets is {total_weight} KG')
     elif user_load_opt == 4:
         print(f'You have chosen option: {user_load_opt} 80mm Interlocking Paver')
         intloc_80_weight = 3.5
         # multiply weight by pallet size
         total_weight = intloc_80_weight * 500 * num_pallets
-        print(f'The total weight for the {num_pallets} pallets chosen is {total_weight} KG')
+        print(f'The total weight for the {num_pallets} pallets is {total_weight} KG')
     elif user_load_opt == 5:
         print(f'You have chosen option: {user_load_opt} Face bricks')
         facebrick_weight = 3.5
         # multiply weight by pallet size
         total_weight = facebrick_weight * 500 * num_pallets
-        print(f'The total weight for the {num_pallets} pallets chosen is {total_weight} KG')
+        print(f'The total weight for the {num_pallets} pallets is {total_weight} KG')
     elif user_load_opt == 6:
         print(f'You have chosen option: {user_load_opt} Block M4')
         block_m4_weight = 20
@@ -132,9 +132,10 @@ def load_order(user_load_opt, num_pallets):
         total_weight = brick_weight * 500 * num_pallets
         print(f'The total weight for the {num_pallets} pallets of bricks is {total_weight} KG')
     elif user_load_opt == 13:
-       exit_option()
+        exit_option()
     else:
         print('You have selected an invalid option, Please try again')
+
 
 def exit_option():
     print('Confirm you want to exit? \n 1: - Exit \n 2: Cancel')

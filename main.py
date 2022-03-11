@@ -6,14 +6,15 @@
 import csv
 
 #  define the functions used by the application
+
 def main_menu():
     print('This is the main menu')
     print('Please select the programme you wish to run')
     user_prog_option = int(input('1: Quotation with prices\n'
                                  '2: Quotation without prices\n'
                                  '3: Product Information\n'
-                                 '4: Order load information\n'))
-
+                                 '4: Order load information\n'
+                                 '5: Exit\n'))
     # Program option Quotation with prices
     if user_prog_option == 1:
         print(f'You have chosen option number {user_prog_option}: Quotation with prices')
@@ -21,7 +22,15 @@ def main_menu():
     # Program option Quotation without prices
     elif user_prog_option == 2:
         print(f'You have chosen option number {user_prog_option}: Quotation without prices')
-        user_prod_name = input('Please enter the product you would like to view below: \n')
+        customer_name = input('Please enter the Customer name below: \n')
+        area_measured = input('Please enter the area to be covered below: \n')
+
+        user_load_opt = int(input('Please enter the product to be calculated below: \n'
+                                  '1. Interlocking Pavers (60mm 80mm) \n2. Round Dumbell Pavers \n'
+                                  '3. 60mm Interlocking Paver'
+                                  '4. 80mm Interlocking Paver \n5. Face bricks  \n6. Block M4 \n7. Block M6'
+                                  '8. Block M9 \n9. Industrial Kerbstones \n10. Domestic Kerbstones \n'
+                                  '11. Paving Slabs\n12. 3 Hole Brick \n13. Exit\n'))
     #  Program option Product Information
     elif user_prog_option == 3:
         print(f'You have chosen option number {user_prog_option}: Product Information')
@@ -33,16 +42,16 @@ def main_menu():
         user_load_opt = int(input('Please enter the product to be calculated below: \n'
                                   '1. Classic Pavers \n2. Concrete common bricks \n3. 60mm Interlocking Paver'
                                   '4. 80mm Interlocking Paver \n5. Face bricks  \n6. Block M4 \n7. Block M6'
-                                  '8. Block M9 \n9. Industrial Kerbstones \n10. Domestic Kerbstones \n11. Paving Slabs\n'
-                                  '12. 3 Hole Brick \n 13. Exit\n'))
+                                  '8. Block M9 \n9. Industrial Kerbstones \n10. Domestic Kerbstones \n'
+                                  '11. Paving Slabs\n12. 3 Hole Brick \n13. Exit\n'))
         load_order(user_load_opt)
-
     #  Program option EXit
     elif user_prog_option == 5:
         exit_option()
     # Program invalid option
     else:
         print('You have selected an invalid option, Please insert a valid option and try again')
+        main_menu()
 
 
 def prod_info():
@@ -178,6 +187,7 @@ def exit_option():
         return exit(0)
     else:
         print('Welcome back to the application')
+        main_menu()
 
 #  Print introduction to application
 print('Welcome to the BRU App')

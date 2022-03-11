@@ -89,7 +89,7 @@ def quote_noprice():
               f'The total bricks required are {total_pavers} \n'
               f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
               f'The number of pallets is {pallets} \n')
-        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit'))
+        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
         if menu_option == 1:
             main_menu()
         elif menu_option == 2:
@@ -98,13 +98,14 @@ def quote_noprice():
             print('You have selected an invalid option. Please try again')
             main_menu()
     elif split == 2:
-        total_pavers = total_pavers / 2
+        working_paver = 0
+        working_paver = total_pavers / 2
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
-              f'The bricks required are {total_pavers} per color\n'
+              f'The bricks required are {working_paver} per color and {total_pavers} total pavers\n'
               f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
               f'The number of pallets is {pallets} \n')
-        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit'))
+        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
         if menu_option == 1:
             main_menu()
         elif menu_option == 2:
@@ -113,13 +114,14 @@ def quote_noprice():
             print('You have selected an invalid option. Please try again')
             main_menu()
     elif split == 3:
-        total_pavers = total_pavers / 3
+        working_paver = 0
+        working_paver = total_pavers / 3
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
-              f'The bricks required are {total_pavers} per color\n'
+              f'The bricks required are {working_paver} per color and {total_pavers} total pavers\n'
               f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
               f'The number of pallets is {pallets} \n')
-        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit'))
+        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
         if menu_option == 1:
             main_menu()
         elif menu_option == 2:
@@ -128,7 +130,7 @@ def quote_noprice():
             print('You have selected an invalid option. Please try again')
             main_menu()
 
-    
+
 def load_order():
     user_load_opt = int(input('Please enter the product to be calculated below: \n'
                               '1. Classic Pavers \n2. Concrete common bricks \n3. 60mm Interlocking Paver'

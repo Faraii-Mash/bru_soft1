@@ -22,15 +22,7 @@ def main_menu():
     # Program option Quotation without prices
     elif user_prog_option == 2:
         print(f'You have chosen option number {user_prog_option}: Quotation without prices')
-        customer_name = input('Please enter the Customer name below: \n')
-        area_measured = input('Please enter the area to be covered below: \n')
-
-        user_load_opt = int(input('Please enter the product to be calculated below: \n'
-                                  '1. Interlocking Pavers (60mm 80mm) \n2. Round Dumbell Pavers \n'
-                                  '3. 60mm Interlocking Paver'
-                                  '4. 80mm Interlocking Paver \n5. Face bricks  \n6. Block M4 \n7. Block M6'
-                                  '8. Block M9 \n9. Industrial Kerbstones \n10. Domestic Kerbstones \n'
-                                  '11. Paving Slabs\n12. 3 Hole Brick \n13. Exit\n'))
+        quote_noprice()
     #  Program option Product Information
     elif user_prog_option == 3:
         print(f'You have chosen option number {user_prog_option}: Product Information')
@@ -39,12 +31,7 @@ def main_menu():
     #  Program option Order load information
     elif user_prog_option == 4:
         print(f'You have chosen option number {user_prog_option}: Order load information')
-        user_load_opt = int(input('Please enter the product to be calculated below: \n'
-                                  '1. Classic Pavers \n2. Concrete common bricks \n3. 60mm Interlocking Paver'
-                                  '4. 80mm Interlocking Paver \n5. Face bricks  \n6. Block M4 \n7. Block M6'
-                                  '8. Block M9 \n9. Industrial Kerbstones \n10. Domestic Kerbstones \n'
-                                  '11. Paving Slabs\n12. 3 Hole Brick \n13. Exit\n'))
-        load_order(user_load_opt)
+        load_order()
     #  Program option EXit
     elif user_prog_option == 5:
         exit_option()
@@ -68,13 +55,37 @@ def prod_info():
 
 def quote_priced():
     print('You have chosen to generate a quotation with prices')
+    print('You have chosen to generate a quantity report')
+    # setting the constants
+    labour = ''
+    customer_name = input('Please enter the Customer name below: \n')
+    area_measured = input('Please enter the area to be covered (in Sqaure metres) below: \n')
+    user_load_opt = int(input('Please enter the product to be calculated below: \n'
+                              '1. Interlocking Pavers (60mm 80mm) \n2. Round Dumbell Pavers \n3. Hexagon Pavers '
+                              '4. Rectangular Pavers \n5. Dog Bone Pavers \n6. Bone Pavers \n7. Z Shape Pavers '
+                              '8. Clover Pavers \n9. Star Pavers  \n10. Exit\n'))
+    split = input('Number of colors chosen (1,2 or 3)')
 
 
 def quote_noprice():
-    print('You have chosen to generate a quotation with prices')
+    print('You have chosen to generate a quantity report')
+    #setting the constants
+    labour = ''
+    customer_name = input('Please enter the Customer name below: \n')
+    area_measured = input('Please enter the area to be covered (in Sqaure metres) below: \n')
+    user_load_opt = int(input('Please enter the product to be calculated below: \n'
+                              '1. Interlocking Pavers (60mm 80mm) \n2. Round Dumbell Pavers \n3. Hexagon Pavers '
+                              '4. Rectangular Pavers \n5. Dog Bone Pavers \n6. Bone Pavers \n7. Z Shape Pavers '
+                              '8. Clover Pavers \n9. Star Pavers  \n10. Exit\n'))
+    split = input('Number of colors chosen (1,2 or 3)')
 
 
-def load_order(user_load_opt):
+def load_order():
+    user_load_opt = int(input('Please enter the product to be calculated below: \n'
+                              '1. Classic Pavers \n2. Concrete common bricks \n3. 60mm Interlocking Paver'
+                              '4. 80mm Interlocking Paver \n5. Face bricks  \n6. Block M4 \n7. Block M6'
+                              '8. Block M9 \n9. Industrial Kerbstones \n10. Domestic Kerbstones \n'
+                              '11. Paving Slabs\n12. 3 Hole Brick \n13. Exit\n'))
     # start option
     if user_load_opt == 1:
         print('Below you will find the information for the load order requested')

@@ -4,6 +4,7 @@
 #  import
 
 import csv
+import pandas as pd
 
 #  define the functions used by the application
 
@@ -24,10 +25,11 @@ def main_menu():
         print(f'You have chosen option number {user_prog_option}: Quotation without prices')
         quote_noprice()
     #  Program option Product Information
+
     elif user_prog_option == 3:
-        print(f'You have chosen option number {user_prog_option}: Product Information')
-        print('Below you will find the information for the load order requested')
-        prod_info()
+        data = pd.read_csv('bru_prod_specs.csv')
+        print(data)
+
     #  Program option Order load information
     elif user_prog_option == 4:
         print(f'You have chosen option number {user_prog_option}: Order load information')

@@ -57,29 +57,78 @@ def quote_priced():
     print('You have chosen to generate a quotation with prices')
     print('You have chosen to generate a quantity report')
     # setting the constants
-    labour = ''
+    labour = 3.50
+    quarry_dust = 0.05
     customer_name = input('Please enter the Customer name below: \n')
-    area_measured = input('Please enter the area to be covered (in Sqaure metres) below: \n')
+    area_measured = int(input('Please enter the area to be covered (in Sqaure metres) below: \n'))
     user_load_opt = int(input('Please enter the product to be calculated below: \n'
                               '1. Interlocking Pavers (60mm 80mm) \n2. Round Dumbell Pavers \n3. Hexagon Pavers '
                               '4. Rectangular Pavers \n5. Dog Bone Pavers \n6. Bone Pavers \n7. Z Shape Pavers '
                               '8. Clover Pavers \n9. Star Pavers  \n10. Exit\n'))
-    split = input('Number of colors chosen (1,2 or 3)')
+    split = int(input('Number of colors chosen (1,2 or 3)'))
 
 
 def quote_noprice():
     print('You have chosen to generate a quantity report')
     #setting the constants
-    labour = ''
+    quarry_dust = 0.05
     customer_name = input('Please enter the Customer name below: \n')
-    area_measured = input('Please enter the area to be covered (in Sqaure metres) below: \n')
+    area_measured = int(input('Please enter the area to be covered (in Sqaure metres) below: \n'))
     user_load_opt = int(input('Please enter the product to be calculated below: \n'
                               '1. Interlocking Pavers (60mm 80mm) \n2. Round Dumbell Pavers \n3. Hexagon Pavers '
                               '4. Rectangular Pavers \n5. Dog Bone Pavers \n6. Bone Pavers \n7. Z Shape Pavers '
                               '8. Clover Pavers \n9. Star Pavers  \n10. Exit\n'))
-    split = input('Number of colors chosen (1,2 or 3)')
+    split = int(input('Number of colors chosen (1,2 or 3)\n'))
+    bricks_per_m = [50, 42, 62, 50, 50, 50, 42, 62, 50]
+    total_pavers = area_measured * bricks_per_m[user_load_opt - 1]
+    total_quarry_dust = quarry_dust * area_measured
+    pallets = total_pavers/500
+    if split == 1:
+        print('Below is your Quantity report')
+        print(f'Customer Name: {customer_name} \n'
+              f'The total bricks required are {total_pavers} \n'
+              f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
+              f'The number of pallets is {pallets} \n')
+        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit'))
+        if menu_option == 1:
+            main_menu()
+        elif menu_option == 2:
+            exit_option()
+        else:
+            print('You have selected an invalid option. Please try again')
+            main_menu()
+    elif split == 2:
+        total_pavers = total_pavers / 2
+        print('Below is your Quantity report')
+        print(f'Customer Name: {customer_name} \n'
+              f'The bricks required are {total_pavers} per color\n'
+              f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
+              f'The number of pallets is {pallets} \n')
+        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit'))
+        if menu_option == 1:
+            main_menu()
+        elif menu_option == 2:
+            exit_option()
+        else:
+            print('You have selected an invalid option. Please try again')
+            main_menu()
+    elif split == 3:
+        total_pavers = total_pavers / 3
+        print('Below is your Quantity report')
+        print(f'Customer Name: {customer_name} \n'
+              f'The bricks required are {total_pavers} per color\n'
+              f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
+              f'The number of pallets is {pallets} \n')
+        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit'))
+        if menu_option == 1:
+            main_menu()
+        elif menu_option == 2:
+            exit_option()
+        else:
+            print('You have selected an invalid option. Please try again')
+            main_menu()
 
-
+    
 def load_order():
     user_load_opt = int(input('Please enter the product to be calculated below: \n'
                               '1. Classic Pavers \n2. Concrete common bricks \n3. 60mm Interlocking Paver'

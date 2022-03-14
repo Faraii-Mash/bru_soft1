@@ -19,13 +19,12 @@ def main_menu():
     # Program option Quotation with prices
     if user_prog_option == 1:
         print(f'You have chosen option number {user_prog_option}: Quotation with prices')
-        user_prod_name = input('Please enter the product you would like to view below: \n')
+        quote_priced()
     # Program option Quotation without prices
     elif user_prog_option == 2:
         print(f'You have chosen option number {user_prog_option}: Quotation without prices')
         quote_noprice()
     #  Program option Product Information
-
     elif user_prog_option == 3:
         data = pd.read_csv('bru_prod_specs.csv')
         print(data)
@@ -44,7 +43,7 @@ def main_menu():
 
 
 def prod_info():
-    print('Product informaiton below')
+    print('Product information below')
     file = open('bru_prod_specs.csv')
     csvreader = csv.reader(file)
     header = next(csvreader)
@@ -54,10 +53,17 @@ def prod_info():
         rows.append(row)
     print(rows)
     file.close()
+    menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
+    if menu_option == 1:
+        main_menu()
+    elif menu_option == 2:
+        exit_option()
+    else:
+        print('You have selected an invalid option. Please try again')
+        main_menu()
 
 def quote_priced():
     print('You have chosen to generate a quotation with prices')
-    print('You have chosen to generate a quantity report')
     # setting the constants
     labour = 3.50
     quarry_dust = 0.05
@@ -68,6 +74,63 @@ def quote_priced():
                               '4. Rectangular Pavers \n5. Dog Bone Pavers \n6. Bone Pavers \n7. Z Shape Pavers '
                               '8. Clover Pavers \n9. Star Pavers  \n10. Exit\n'))
     split = int(input('Number of colors chosen (1,2 or 3)'))
+    color_choice = int(input('Are there any color pavers in the quotation'
+                             '1: All color'
+                             '2: Half have color'
+                             '3: None have color'))
+    bricks_per_m = [50, 42, 62, 50, 50, 50, 42, 62, 50]
+    total_pavers = area_measured * bricks_per_m[user_load_opt - 1]
+    total_quarry_dust = quarry_dust * area_measured
+    pallets = total_pavers/500
+    bricks_price = [0.16, 0.18, 0.20, 0.22]
+    if user_load_opt == 1 or 4 or 3 or 8 or 9 or 7:
+        bricks_working_price = bricks_price[1]
+    elif user_load_opt == 2 or 4:
+        bricks_working_price = bricks_price[3]
+    if split == 1:
+        print('Below is your Quantity report')
+        print(f'Customer Name: {customer_name} \n'
+              f'The total bricks required are {total_pavers} \n'
+              f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
+              f'The number of pallets is {pallets} \n')
+        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
+        if menu_option == 1:
+            main_menu()
+        elif menu_option == 2:
+            exit_option()
+        else:
+            print('You have selected an invalid option. Please try again')
+            main_menu()
+    elif split == 2:
+        working_paver = total_pavers / 2
+        print('Below is your Quantity report')
+        print(f'Customer Name: {customer_name} \n'
+              f'The bricks required are {working_paver} per color and {total_pavers} total pavers\n'
+              f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
+              f'The number of pallets is {pallets} \n')
+        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
+        if menu_option == 1:
+            main_menu()
+        elif menu_option == 2:
+            exit_option()
+        else:
+            print('You have selected an invalid option. Please try again')
+            main_menu()
+    elif split == 3:
+        working_paver = total_pavers / 3
+        print('Below is your Quantity report')
+        print(f'Customer Name: {customer_name} \n'
+              f'The bricks required are {working_paver} per color and {total_pavers} total pavers\n'
+              f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
+              f'The number of pallets is {pallets} \n')
+        menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
+        if menu_option == 1:
+            main_menu()
+        elif menu_option == 2:
+            exit_option()
+        else:
+            print('You have selected an invalid option. Please try again')
+            main_menu()
 
 
 def quote_noprice():
@@ -100,7 +163,6 @@ def quote_noprice():
             print('You have selected an invalid option. Please try again')
             main_menu()
     elif split == 2:
-        working_paver = 0
         working_paver = total_pavers / 2
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
@@ -116,7 +178,6 @@ def quote_noprice():
             print('You have selected an invalid option. Please try again')
             main_menu()
     elif split == 3:
-        working_paver = 0
         working_paver = total_pavers / 3
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
@@ -136,7 +197,7 @@ def quote_noprice():
 def load_order():
     user_load_opt = int(input('Please enter the product to be calculated below: \n'
                               '1. Classic Pavers \n2. Concrete common bricks \n3. 60mm Interlocking Paver'
-                              '4. 80mm Interlocking Paver \n5. Face bricks  \n6. Block M4 \n7. Block M6'
+                              '4. 80mm Interlocking Paver \n5. Face bricks  \n6. Block M4 \n7. Block M6\n'
                               '8. Block M9 \n9. Industrial Kerbstones \n10. Domestic Kerbstones \n'
                               '11. Paving Slabs\n12. 3 Hole Brick \n13. Exit\n'))
     # start option
@@ -183,7 +244,7 @@ def load_order():
     elif user_load_opt == 6:
         print('Below you will find the information for the load order requested')
         print(f'You have chosen option: {user_load_opt} Block M4')
-        num_pallets = int(input('Please input the number of pallets here: \n'))
+        num_pallets = int(input('Please input the number of blocks here: \n'))
         block_m4_weight = 20
         # multiply weight by pallet size
         total_weight = block_m4_weight * num_pallets
@@ -191,7 +252,7 @@ def load_order():
     elif user_load_opt == 7:
         print('Below you will find the information for the load order requested')
         print(f'You have chosen option: {user_load_opt} Block M6')
-        num_pallets = int(input('Please input the number of pallets here: \n'))
+        num_pallets = int(input('Please input the number of Blocks here: \n'))
         block_m6_weight = 24
         # multiply weight by pallet size
         total_weight = block_m6_weight * num_pallets
@@ -199,7 +260,7 @@ def load_order():
     elif user_load_opt == 8:
         print('Below you will find the information for the load order requested')
         print(f'You have chosen option: {user_load_opt} Block M4')
-        num_pallets = int(input('Please input the number of pallets here: \n'))
+        num_pallets = int(input('Please input the number of Blocks here: \n'))
         block_m6_weight = 33
         # multiply weight by pallet size
         total_weight = block_m6_weight * num_pallets
@@ -207,7 +268,7 @@ def load_order():
     elif user_load_opt == 9:
         print('Below you will find the information for the load order requested')
         print(f'You have chosen option: {user_load_opt} Industrial Kerbstones')
-        num_pallets = int(input('Please input the number of pallets here: \n'))
+        num_pallets = int(input('Please input the number of Kerbstones here: \n'))
         kerbstone_weight = 90
         # multiply weight by pallet size
         total_weight = kerbstone_weight * num_pallets
@@ -215,7 +276,7 @@ def load_order():
     elif user_load_opt == 10:
         print('Below you will find the information for the load order requested')
         print(f'You have chosen option: {user_load_opt} Domestic Kerbstones')
-        num_pallets = int(input('Please input the number of pallets here: \n'))
+        num_pallets = int(input('Please input the number of Kerbstones here: \n'))
         kerbstone_weight = 45
         # multiply weight by pallet size
         total_weight = kerbstone_weight * num_pallets
@@ -223,11 +284,11 @@ def load_order():
     elif user_load_opt == 11:
         print('Below you will find the information for the load order requested')
         print(f'You have chosen option: {user_load_opt} Paving Slabs')
-        num_pallets = int(input('Please input the number of pallets here: \n'))
+        num_pallets = int(input('Please input the number of slabs here: \n'))
         slabs_weight = 23
         # multiply weight by pallet size
         total_weight = slabs_weight * num_pallets
-        print(f'The total weight for the {num_pallets} blocks is {total_weight} KG')
+        print(f'The total weight for the {num_pallets} slabs is {total_weight} KG')
     elif user_load_opt == 12:
         print('Below you will find the information for the load order requested')
         print(f'You have chosen option: {user_load_opt} 3 Hole Facebrick')
@@ -240,10 +301,17 @@ def load_order():
         exit_option()
     else:
         print('You have selected an invalid option, Please try again')
-
+    menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
+    if menu_option == 1:
+        main_menu()
+    elif menu_option == 2:
+        exit_option()
+    else:
+        print('You have selected an invalid option. Please try again')
+        main_menu()
 
 def exit_option():
-    print('Confirm you want to exit? \n 1: - Exit \n 2: Cancel')
+    print('Confirm you want to exit? \n 1: Exit \n 2: Cancel')
     # requesting a users input and converting it into an integer using the int() function
     confirm_exit = int(input('Option here: '))
     if confirm_exit == 1:

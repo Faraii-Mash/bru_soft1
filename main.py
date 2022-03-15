@@ -62,6 +62,7 @@ def prod_info():
         print('You have selected an invalid option. Please try again')
         main_menu()
 
+
 def quote_priced():
     print('You have chosen to generate a quotation with prices')
     # setting the constants
@@ -82,6 +83,7 @@ def quote_priced():
     total_pavers = area_measured * bricks_per_m[user_load_opt - 1]
     total_quarry_dust = quarry_dust * area_measured
     pallets = total_pavers/500
+    plastic_size = area_measured / 100
     bricks_price = [0.16, 0.18, 0.20, 0.22]
     if user_load_opt == 1 or 4 or 3 or 8 or 9 or 7:
         bricks_working_price = bricks_price[1]
@@ -91,8 +93,9 @@ def quote_priced():
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
               f'The total bricks required are {total_pavers} \n'
+              f'The number of pallets is {pallets} \n'
               f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
-              f'The number of pallets is {pallets} \n')
+              f'Plastic Polyethylene plastic required is {area_measured}m, {plastic_size} rolls ')
         menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
         if menu_option == 1:
             main_menu()
@@ -105,9 +108,10 @@ def quote_priced():
         working_paver = total_pavers / 2
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
-              f'The bricks required are {working_paver} per color and {total_pavers} total pavers\n'
+              f'The total bricks required are {total_pavers} \n'
+              f'The number of pallets is {pallets} \n'
               f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
-              f'The number of pallets is {pallets} \n')
+              f'Plastic Polyethylene plastic required is {area_measured}m, {plastic_size} rolls ')
         menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
         if menu_option == 1:
             main_menu()
@@ -120,9 +124,10 @@ def quote_priced():
         working_paver = total_pavers / 3
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
-              f'The bricks required are {working_paver} per color and {total_pavers} total pavers\n'
+              f'The total bricks required are {total_pavers} \n'
+              f'The number of pallets is {pallets} \n'
               f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
-              f'The number of pallets is {pallets} \n')
+              f'Plastic Polyethylene plastic required is {area_measured}m, {plastic_size} rolls ')
         menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
         if menu_option == 1:
             main_menu()
@@ -148,12 +153,14 @@ def quote_noprice():
     total_pavers = area_measured * bricks_per_m[user_load_opt - 1]
     total_quarry_dust = quarry_dust * area_measured
     pallets = total_pavers/500
+    plastic_size = area_measured/100
     if split == 1:
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
               f'The total bricks required are {total_pavers} \n'
+              f'The number of pallets is {pallets} \n'
               f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
-              f'The number of pallets is {pallets} \n')
+              f'Plastic Polyethylene plastic required is {area_measured}m, {plastic_size} rolls ')
         menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
         if menu_option == 1:
             main_menu()
@@ -166,9 +173,10 @@ def quote_noprice():
         working_paver = total_pavers / 2
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
-              f'The bricks required are {working_paver} per color and {total_pavers} total pavers\n'
+             f'The total bricks required are {total_pavers} \n'
+              f'The number of pallets is {pallets} \n'
               f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
-              f'The number of pallets is {pallets} \n')
+              f'Plastic Polyethylene plastic required is {area_measured}m, {plastic_size} rolls ')
         menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
         if menu_option == 1:
             main_menu()
@@ -181,9 +189,10 @@ def quote_noprice():
         working_paver = total_pavers / 3
         print('Below is your Quantity report')
         print(f'Customer Name: {customer_name} \n'
-              f'The bricks required are {working_paver} per color and {total_pavers} total pavers\n'
+              f'The total bricks required are {total_pavers} \n'
+              f'The number of pallets is {pallets} \n'
               f'The total Quarry dust needed is {total_quarry_dust} cubic metres \n'
-              f'The number of pallets is {pallets} \n')
+              f'Plastic Polyethylene plastic required is {area_measured}m, {plastic_size} rolls ')
         menu_option = int(input('Do you wish to return to: \n1. Return to main menu \n2. Exit\n'))
         if menu_option == 1:
             main_menu()
@@ -309,6 +318,7 @@ def load_order():
     else:
         print('You have selected an invalid option. Please try again')
         main_menu()
+
 
 def exit_option():
     print('Confirm you want to exit? \n 1: Exit \n 2: Cancel')

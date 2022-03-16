@@ -1,6 +1,5 @@
-#  inspiration from task manager application
+# removing working code
 
- # TaskManager.py
 # Importing modules
 import datetime
 from datetime import date
